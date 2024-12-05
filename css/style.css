@@ -1,0 +1,167 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: arial, sans-serif;
+  background-color: #f7f7f7;
+}
+.sky {
+  background: radial-gradient(circle, rgb(167, 35, 18) 0%, rgb(112, 43, 25) 70%, rgb(63, 18, 19)100%);
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  overflow: hidden;
+  animation: sky 20s linear infinite;
+}
+@keyframes sky {
+  0%{
+    background: radial-gradient(circle, rgb(167, 35, 18) 0%, rgb(112, 43, 25) 70%, rgb(63, 18, 19)100%);
+  }
+  30%{
+    background: radial-gradient(circle, rgb(178, 53, 36) 0%, rgb(138, 53, 32) 70%, rgb(87, 25, 26)100%);
+  }
+  60%{
+    background: radial-gradient(circle, rgb(201, 47, 27) 0%, rgb(179, 71, 43) 70%, rgb(94, 27, 28)100%);
+  }
+  90%{
+    background: radial-gradient(circle, rgb(218, 48, 25) 0%, rgb(195, 73, 42) 70%, rgb(115, 31, 33)100%);
+  }
+  100%{
+    background: radial-gradient(circle, rgb(237, 60, 36) 0%, rgb(112, 43, 25) 70%, rgb(63, 18, 19)100%);
+  }
+}
+.sun {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  transition: all 30s ease;
+  opacity: 0;
+  top: 40%;
+}
+
+.content_sun {
+  position: absolute;
+  bottom: -5%;
+  left: 50%;
+  opacity: 0;
+  background: linear-gradient(180deg, rgba(255,245,0,1) 0%, rgba(231,89,26,1) 62%, rgba(255,49,0,1) 100%);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: solid rgb(212, 117, 1);
+  box-shadow: 0px 40px 190px rgb(239, 106, 29);
+}
+.bird{
+  width: 15px;
+  height: 15px;
+  margin-top: 190px;
+  margin-left: 50px;
+  scale: .3;
+  background-color: black;
+  border-radius: 50% 50% 20% 20%;
+  animation: bird 10s linear infinite;
+  position: relative;
+}
+@keyframes bird  {
+  0%{
+    scale: .2;
+    margin-left: 50px;
+  }
+  50%{
+    transform: rotateZ(2deg) translateX(2px) translateY(10px) translateZ(0);
+  }
+  
+  100%{
+    scale: 1;
+    margin-left: 110%;
+  }
+}
+.bird::after, .bird::before{
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+.bird::after{
+  border-radius: 100% 100% 0 0;
+  box-shadow: inset 0px 5px black;
+  width: 100px;
+  height: 100px;
+  margin-top: -7px;
+  margin-left: -50px;
+  transform-origin: 100% 0;
+  animation: wing 3s linear infinite;
+}
+.bird::before{
+  background-color: #fbb25f;
+  border-radius: 100% 0% 20% 0%;
+  margin-top: 3px;
+  margin-left: -4px;
+  width: 6px;
+  height: 6px;
+  transform: rotateZ(45deg);
+}
+@keyframes wing {
+  50%{
+    transform: rotateX(-1440deg);
+  }
+}
+.sea {
+  background-color: rgb(1, 1, 141);
+  width: 100%;
+  height: 50vh;
+  bottom: 0;
+  animation: sea 20s linear infinite;
+}
+@keyframes sea {
+  0%{
+    background-color: rgb(1, 1, 141); 
+  }
+  30%{
+    background-color: rgb(10, 10, 173);
+  }
+  60%{
+    background-color: rgb(30, 30, 220);
+  }
+  90%{
+    background-color: rgb(41, 41, 255);
+  }
+  100%{
+    background-color: rgb(58, 58, 219);
+  }
+}
+.fish {
+  width: 0px;
+  height: 0px;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 50px solid black;
+  margin: 50px;
+}
+.content_fish {
+  position: absolute;
+  top: 70%;
+  left: 100%;
+  animation-name: fish;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes fish {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: -10%;
+  }
+}
+
+#sea_container:hover .content_sun {
+  bottom: 20%;
+  opacity: 1;
+  transition: 20s ease;
+}
